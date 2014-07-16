@@ -27,15 +27,16 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\PC\</OutputPath>
-    <DefineConstants>DEBUG;FULLDOTNET,FORCEINT32</DefineConstants>
-    <DocumentationFile>bin\Debug\PC\artemis.xml</DocumentationFile>
+    <OutputPath>..\..\_builds\</OutputPath>
+    <DefineConstants>DEBUG;FORCEINT32,PORTABLE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -139,16 +140,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>echo POSTBUILDSTEP for $(ProjectName)
-xcopy "$(TargetDir)*.dll" "$(SolutionDir)$(OutDir)" /i /y
-if errorlevel 1 goto BuildEventFailed
-xcopy "$(TargetDir)*.xml" "$(SolutionDir)$(OutDir)" /i /y
-if errorlevel 1 goto BuildEventFailed
-goto BuildEventOK
-:BuildEventFailed
-echo POSTBUILDSTEP for $(ProjectName) FAILED
-exit 1
-:BuildEventOK
-echo POSTBUILDSTEP for $(ProjectName) COMPLETED OK</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
